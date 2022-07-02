@@ -16,7 +16,15 @@ namespace Client
             var request = new ClientToServer(username, password, false, false);
             MySocket mySocket = new MySocket();
             string data = JsonConvert.SerializeObject(request);
-            textBox1.Text =  mySocket.Request(data);
+            data =  mySocket.Request(data);
+            if(data == "True")
+            {
+
+                var t = new Thread(() => Application.Run(new MainMenu()));
+                t.Start();
+                this.Close();
+            } 
+            else MessageBox.Show("Username or password is wrong");
         }
     }
 }

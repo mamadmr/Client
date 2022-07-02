@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // UserName_txt
@@ -88,19 +87,11 @@
             this.Exit.Text = "Exit";
             this.Exit.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 205);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 23);
-            this.textBox1.TabIndex = 6;
-            // 
             // LogIn_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(230, 280);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(230, 159);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -122,6 +113,5 @@
         private Label label1;
         private Label label2;
         private Button Exit;
-        private TextBox textBox1;
     }
 }
