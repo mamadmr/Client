@@ -49,26 +49,28 @@ namespace Client
 
         private void apply_button_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < GlobalData.clerks.Count; i++)
+            var request = new ClientToServer(GlobalData.Username, GlobalData.Password, false, true);
+            request.clerk = true;
+            request.Objects = new List<ISendAble>();
+            foreach(var obj in GlobalData.clerks)
             {
-                var request = new ClientToServer(GlobalData.Username, GlobalData.Password, false, true);
-                request.clerk = true;
-                request.SelectObject = GlobalData.clerks[i];
-
-                MySocket mySocket = new MySocket();
-                var indented = Formatting.Indented;
-                var settings = new JsonSerializerSettings()
-                {
-                    TypeNameHandling = TypeNameHandling.All
-                };
-                string data = JsonConvert.SerializeObject(request, indented, settings);
-                data = mySocket.Request(data);
-                if(data == "Not Admin")
-                {
-                    MessageBox.Show("You Are not Admin");
-                    break;
-                }
+                request.Objects.Add(obj);
             }
+            
+            MySocket mySocket = new MySocket();
+            var indented = Formatting.Indented;
+            var settings = new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            string data = JsonConvert.SerializeObject(request, indented, settings);
+
+            data = mySocket.Request(data);
+            if (data == "Not Admin")
+            {
+                MessageBox.Show("You Are not Admin");
+            }
+
         }
     }
     public static class GlobalData
@@ -77,4 +79,6 @@ namespace Client
         public static string Username = "";
         public static string Password = "";
     }
+
+    
 }

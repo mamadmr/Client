@@ -26,7 +26,6 @@ namespace Client
             data =  mySocket.Request(data);
             if(data == "True")
             {
-
                 var t = new Thread(() => Application.Run(new MainMenu()));
                 GlobalData.Username = username;
                 GlobalData.Password = password;

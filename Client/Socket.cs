@@ -45,6 +45,7 @@ namespace Client
             json = Regex.Replace(json,"\"Client", "\"Server");
             json = Regex.Replace(json, "\\[Client", "[Server");
             json = Regex.Replace(json, "Client\\]", "Server]");
+            json = Regex.Replace(json, "System\\.Private\\.CoreLib", "mscorlib");
             json += "<EOF>";
             
             string output = "error";
