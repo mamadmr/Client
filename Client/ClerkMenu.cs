@@ -44,6 +44,38 @@ namespace Client
 
         private void Select_button_Click(object sender, EventArgs e)
         {
+            var request = new ClientToServer(GlobalData.Username, GlobalData.Password, false, true);
+            request.clerk = true;
+            request.SelectObject = new Clerk(Name_txt.Text,
+                                    Phone_txt.Text,
+                                    Address_txt.Text,
+                                    UserName_txt.Text,
+                                    Password_txt.Text,
+                                    IsAdmin_check.Checked);
+            request.Select = true;
+            request.Apply = false;
+
+            MySocket mySocket = new MySocket();
+            var indented = Formatting.Indented;
+            var settings = new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            string data = JsonConvert.SerializeObject(request, indented, settings);
+
+            data = mySocket.Request(data);
+            var settings2 = new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.Objects
+            };
+            ServerToClient item = (ServerToClient)JsonConvert.DeserializeObject(data, settings2);
+            GlobalData.clerks.Clear();
+            foreach(var x in item.Objects)
+            {
+                GlobalData.clerks.Add((Clerk)x);
+            }
+
+            
 
         }
 
@@ -51,6 +83,8 @@ namespace Client
         {
             var request = new ClientToServer(GlobalData.Username, GlobalData.Password, false, true);
             request.clerk = true;
+            request.Apply = true;
+            request.Select = false;
             request.Objects = new List<ISendAble>();
             foreach(var obj in GlobalData.clerks)
             {
@@ -66,10 +100,7 @@ namespace Client
             string data = JsonConvert.SerializeObject(request, indented, settings);
 
             data = mySocket.Request(data);
-            if (data == "Not Admin")
-            {
-                MessageBox.Show("You Are not Admin");
-            }
+            MessageBox.Show(data);
 
         }
     }
@@ -78,7 +109,5 @@ namespace Client
         public static BindingList<Clerk> clerks = new BindingList<Clerk>();
         public static string Username = "";
         public static string Password = "";
-    }
-
-    
+    } 
 }

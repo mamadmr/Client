@@ -121,8 +121,8 @@ namespace Client
     class ClientToServer : Requst
     {
         public string UserName, Password;
-        public bool Select {get;}
-        public bool Apply{get;}
+        public bool Select { get; set; }
+        public bool Apply{ get; set; }
         public ClientToServer(string UserName, string Password, bool Select, bool Apply)
         {
             this.UserName = UserName;
