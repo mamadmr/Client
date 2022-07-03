@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Client
@@ -40,7 +41,12 @@ namespace Client
 
         public string Request(string json)
         {
+            json = Regex.Replace(json,"Client\"", "Server\"");
+            json = Regex.Replace(json,"\"Client", "\"Server");
+            json = Regex.Replace(json, "\\[Client", "[Server");
+            json = Regex.Replace(json, "Client\\]", "Server]");
             json += "<EOF>";
+            
             string output = "error";
             byte[] bytes = new byte[1024];
             try

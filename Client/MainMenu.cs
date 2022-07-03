@@ -16,5 +16,19 @@ namespace Client
         {
             InitializeComponent();
         }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            var t = new Thread(() => Application.Run(new LogIn_Form()));
+            t.Start();
+            this.Close();
+        }
+
+        private void Clerk_But_Click(object sender, EventArgs e)
+        {
+            var t = new Thread(() => Application.Run(new MyClerkMenu()));
+            t.Start();
+            this.Close();
+        }
     }
 }

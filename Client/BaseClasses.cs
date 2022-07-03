@@ -8,9 +8,9 @@ namespace Client
 {
     public class Person
     {
-        public string Name { get; }
-        public string PhoneNumber { get; }
-        public string Address { get; }
+        public string Name { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Address { get; set; }
         
         public Person(string Name, string PhoneNumber, string Address)
         {
@@ -23,11 +23,10 @@ namespace Client
     {
         public long Id { get; set; }
         public bool IsNew { get; set; }
-        public bool Edited { get; set; }
         public bool Removed { get; set; }
         public bool Select { get; set; }
-        public string UserName { get; }
-        public string Password { get; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
         public bool IsAdmin { get; set; }
         public Clerk(string Name, string PhoneNumber, string Address, string UserName, string Password, bool IsAdmin)
             :base(Name, PhoneNumber, Address)
@@ -101,7 +100,9 @@ namespace Client
     class Requst
     {
         public bool clerk, cutomer, product, order;
-        public List<ISendAble> objects;
+        public List<ISendAble> Objects;
+        public ISendAble SelectObject;
+
     }
     class Search: Requst, ISendAble
     {
@@ -122,14 +123,13 @@ namespace Client
         public string UserName, Password;
         public bool Select {get;}
         public bool Apply{get;}
-
-        public ISendAble SelectObject;
         public ClientToServer(string UserName, string Password, bool Select, bool Apply)
         {
             this.UserName = UserName;
             this.Password = Password;
             this.Select = Select;
             this.Apply = Apply;
+            clerk=false; cutomer=false; product=false; order=false;
         }
     }
     class ServerToClient: Requst

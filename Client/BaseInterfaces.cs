@@ -14,7 +14,6 @@ namespace Client
     {
         long Id { get;}
         bool IsNew { get; }
-        bool Edited { get;}
         bool Removed { get;}
         bool Select { get; }
     }
