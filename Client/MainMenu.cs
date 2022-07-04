@@ -44,5 +44,12 @@ namespace Client
             t.Start();
             this.Close();
         }
+
+        private void Order_button_Click(object sender, EventArgs e)
+        {
+            var t = new Thread(() => Application.Run(new OrderMenu()));
+            t.Start();
+            this.Close();
+        }
     }
 }

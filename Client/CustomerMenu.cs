@@ -88,7 +88,6 @@ namespace Client
                 TypeNameHandling = TypeNameHandling.All
             };
             string data = JsonConvert.SerializeObject(request, indented, settings);
-
             data = mySocket.Request(data);
             var settings2 = new JsonSerializerSettings()
             {
@@ -102,5 +101,4 @@ namespace Client
             }
         }
     }
-
 }

@@ -139,4 +139,11 @@ namespace Client
         public bool Done;
         public string Description;
     }
+    
+    public static class ConstValue
+    {
+        public static int start_hour { get { return 6; } }
+        public static int end_hour { get { return 21; } }
+        public static int max_in_hour { get { return 1000; } }
+    }
 }

@@ -32,6 +32,7 @@
             this.Cake_button = new System.Windows.Forms.Button();
             this.Customer = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
+            this.Order_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Clerk_But
@@ -78,11 +79,23 @@
             this.Back.UseVisualStyleBackColor = true;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
+            // Order_button
+            // 
+            this.Order_button.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Order_button.Location = new System.Drawing.Point(47, 221);
+            this.Order_button.Name = "Order_button";
+            this.Order_button.Size = new System.Drawing.Size(197, 44);
+            this.Order_button.TabIndex = 4;
+            this.Order_button.Text = "Order";
+            this.Order_button.UseVisualStyleBackColor = true;
+            this.Order_button.Click += new System.EventHandler(this.Order_button_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 420);
+            this.Controls.Add(this.Order_button);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.Customer);
             this.Controls.Add(this.Cake_button);
@@ -99,5 +112,6 @@
         private Button Cake_button;
         private Button Customer;
         private Button Back;
+        private Button Order_button;
     }
 }
