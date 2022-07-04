@@ -30,5 +30,12 @@ namespace Client
             t.Start();
             this.Close();
         }
+
+        private void Cake_button_Click(object sender, EventArgs e)
+        {
+            var t = new Thread(() => Application.Run(new CakeMenu_Form()));
+            t.Start();
+            this.Close();
+        }
     }
 }

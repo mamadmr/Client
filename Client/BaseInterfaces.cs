@@ -22,7 +22,6 @@ namespace Client
         long Price { get;}
         string Name { get;}
         string Description { get;}
-        string Code { get; }
     }
     interface ICustomer
     {

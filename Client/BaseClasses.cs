@@ -58,25 +58,22 @@ namespace Client
             Balance = 0;
         }
     }
-    class Cake: IProduct, ISendAble
+    public class Cake: IProduct, ISendAble
     {
         public long Id { get; set; }
         public bool IsNew { get; set; }
-        public bool Edited { get; set; }
         public bool Removed { get; set; }
         public bool Select { get; set; }
 
         public long Price { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Code { get; set; }
 
-        public Cake(long Price, string Name, string Description, string Code)
+        public Cake(long Price, string Name, string Description)
         {
             this.Price = Price;
             this.Name = Name;
             this.Description = Description;
-            this.Code = Code;
         }
     }
     class Order:ISendAble, IOrder

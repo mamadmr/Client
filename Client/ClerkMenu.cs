@@ -107,6 +107,7 @@ namespace Client
     public static class GlobalData
     {
         public static BindingList<Clerk> clerks = new BindingList<Clerk>();
+        public static BindingList<Cake> cakes = new BindingList<Cake>();
         public static string Username = "";
         public static string Password = "";
     } 

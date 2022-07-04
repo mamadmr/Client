@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.Clerk_But = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Cake_button = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -45,15 +45,16 @@
             this.Clerk_But.UseVisualStyleBackColor = true;
             this.Clerk_But.Click += new System.EventHandler(this.Clerk_But_Click);
             // 
-            // button2
+            // Cake_button
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(47, 98);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(197, 44);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Cake_button.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Cake_button.Location = new System.Drawing.Point(47, 98);
+            this.Cake_button.Name = "Cake_button";
+            this.Cake_button.Size = new System.Drawing.Size(197, 44);
+            this.Cake_button.TabIndex = 1;
+            this.Cake_button.Text = "Cake";
+            this.Cake_button.UseVisualStyleBackColor = true;
+            this.Cake_button.Click += new System.EventHandler(this.Cake_button_Click);
             // 
             // button3
             // 
@@ -83,7 +84,7 @@
             this.ClientSize = new System.Drawing.Size(282, 420);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Cake_button);
             this.Controls.Add(this.Clerk_But);
             this.Name = "MainMenu";
             this.Text = "Form1";
@@ -94,7 +95,7 @@
         #endregion
 
         private Button Clerk_But;
-        private Button button2;
+        private Button Cake_button;
         private Button button3;
         private Button Back;
     }
