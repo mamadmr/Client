@@ -37,5 +37,12 @@ namespace Client
             t.Start();
             this.Close();
         }
+
+        private void Customer_Click(object sender, EventArgs e)
+        {
+            var t = new Thread(() => Application.Run(new CustomerMenu()));
+            t.Start();
+            this.Close();
+        }
     }
 }
