@@ -28,14 +28,21 @@ namespace Client
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            var temp = new Cake(Int64.Parse(Price_txt.Text), Name_txt.Text,
-                                   Describe_txt.Text);
+            try
+            {
+                var temp = new Cake(Int64.Parse(Price_txt.Text), Name_txt.Text,
+                                       Describe_txt.Text);
 
-            temp.IsNew = true;
-            GlobalData.cakes.Add(temp);
-            Price_txt.Text = "";
-            Name_txt.Text = "";
-            Describe_txt.Text = "";
+                temp.IsNew = true;
+                GlobalData.cakes.Add(temp);
+                Price_txt.Text = "";
+                Name_txt.Text = "";
+                Describe_txt.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Enter a iniger as price");
+            }
 
         }
 

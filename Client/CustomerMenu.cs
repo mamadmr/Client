@@ -30,15 +30,22 @@ namespace Client
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            var temp = new Customer(Name_txt.Text, phoneNumber_txt.Text
-                , Address_txt.Text, code_generator());
-            temp.Balance = Int64.Parse(Money_txt.Text);
-            temp.IsNew = true;
-            GlobalData.customers.Add(temp);
-            Name_txt.Text="";
-            phoneNumber_txt.Text="";
-            Address_txt.Text="";
-            Money_txt.Text="";
+            try
+            {
+                var temp = new Customer(Name_txt.Text, phoneNumber_txt.Text
+                    , Address_txt.Text, code_generator());
+                temp.Balance = Int64.Parse(Money_txt.Text);
+                temp.IsNew = true;
+                GlobalData.customers.Add(temp);
+                Name_txt.Text = "";
+                phoneNumber_txt.Text = "";
+                Address_txt.Text = "";
+                Money_txt.Text = "";
+            }
+            catch
+            {
+                MessageBox.Show("enter a iniger for money");
+            }
         }
 
         private string code_generator()

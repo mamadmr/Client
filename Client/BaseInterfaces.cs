@@ -6,41 +6,40 @@ using System.Threading.Tasks;
 
 namespace Client
 {
-    interface Itransfer
+    public interface Itransfer
     {
         string Request(string json);
     }
-    interface ISendAble
+    public interface ISendAble
     {
         long Id { get;}
         bool IsNew { get; }
         bool Removed { get;}
         bool Select { get; }
     }
-    interface IProduct
+    public interface IProduct
     {
         long Price { get;}
         string Name { get;}
         string Description { get;}
     }
-    interface ICustomer
+    public interface ICustomer
     {
         long Balance { get; set; }
         long OrderCountRecive { get; set; }
         long OrderCountRemove { get; set; }
         string SubscribeCode { get; }
     }
-    interface IClerk
+    public interface IClerk
     {
         string UserName { get; }
         string Password { get; }
         bool IsAdmin { get; set; }
     }
-    interface IOrder
+    public interface IOrder
     {
         int Hour { get; set; }
         long TotalPrice { get;}
-        string OrederNumber { get; }
         string OrderCode { get;}
     }
 }

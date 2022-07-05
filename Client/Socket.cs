@@ -49,7 +49,7 @@ namespace Client
             json += "<EOF>";
             
             string output = "error";
-            byte[] bytes = new byte[1024];
+            byte[] bytes = new byte[100000];
             try
             {
                 byte[] msg = Encoding.ASCII.GetBytes(json);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,6 +58,11 @@ namespace Client
             OrderCountRemove = 0;
             Balance = 0;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
     public class Cake: IProduct, ISendAble
     {
@@ -75,33 +81,35 @@ namespace Client
             this.Name = Name;
             this.Description = Description;
         }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
-    class Order:ISendAble, IOrder
+    public class Order:ISendAble, IOrder
     {
         public long Id { get; set; }
         public bool IsNew { get; set; }
-        public bool Edited { get; set; }
         public bool Removed { get; set; }
         public bool Select { get; set; }
-
         public  int Hour { get; set; }
         public long TotalPrice 
         { 
-                get { return Products.Select(x => x.Key.Price*x.Value).Sum(); }
+                get { return Products.Select(x => x.cake.Price*x.count).Sum(); }
         }
-        public string OrederNumber { get; }
-        public string OrderCode { get; }
-        public Dictionary<IProduct, int> Products = new Dictionary<IProduct, int>();
+        public string OrderCode { get; set; }
+        public List<Item> Products = new List<Item>();
+        public Customer Customer { get; set; }
 
     }
-    class Requst
+    public class Requst
     {
         public bool clerk, cutomer, product, order;
         public List<ISendAble> Objects;
         public ISendAble SelectObject;
 
     }
-    class Search: Requst, ISendAble
+    public class Search: Requst, ISendAble
     {
         public long Id { get; set; }
         public bool IsNew { get; set; }
@@ -145,5 +153,23 @@ namespace Client
         public static int start_hour { get { return 6; } }
         public static int end_hour { get { return 21; } }
         public static int max_in_hour { get { return 1000; } }
+    }
+    public static class GlobalData
+    {
+        public static BindingList<Clerk> clerks = new BindingList<Clerk>();
+        public static BindingList<Cake> cakes = new BindingList<Cake>();
+        public static BindingList<Customer> customers = new BindingList<Customer>();
+        public static BindingList<Order> orders = new BindingList<Order>();
+        public static BindingList<Item> basket = new BindingList<Item>();
+
+        public static string Username = "";
+        public static string Password = "";
+    }
+
+    public class Item
+    {
+        public Cake cake;
+        public int count { get; set; }
+        public string name { get; set; }
     }
 }

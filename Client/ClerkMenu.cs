@@ -68,14 +68,20 @@ namespace Client
             {
                 TypeNameHandling = TypeNameHandling.Objects
             };
-            ServerToClient item = (ServerToClient)JsonConvert.DeserializeObject(data, settings2);
-            GlobalData.clerks.Clear();
-            foreach(var x in item.Objects)
+            try
             {
-                GlobalData.clerks.Add((Clerk)x);
-            }
+                ServerToClient item = (ServerToClient)JsonConvert.DeserializeObject(data, settings2);
+                GlobalData.clerks.Clear();
+                foreach (var x in item.Objects)
+                {
+                    GlobalData.clerks.Add((Clerk)x);
+                }
 
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(data);
+            }
 
         }
 
@@ -104,12 +110,5 @@ namespace Client
 
         }
     }
-    public static class GlobalData
-    {
-        public static BindingList<Clerk> clerks = new BindingList<Clerk>();
-        public static BindingList<Cake> cakes = new BindingList<Cake>();
-        public static BindingList<Customer> customers = new BindingList<Customer>();
-        public static string Username = "";
-        public static string Password = "";
-    } 
+
 }

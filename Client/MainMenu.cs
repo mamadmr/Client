@@ -19,6 +19,7 @@ namespace Client
 
         private void Back_Click(object sender, EventArgs e)
         {
+            GlobalData.clerks.Clear();
             var t = new Thread(() => Application.Run(new LogIn_Form()));
             t.Start();
             this.Close();
