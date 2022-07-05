@@ -48,7 +48,22 @@ namespace Client
 
         private void Order_button_Click(object sender, EventArgs e)
         {
-            var t = new Thread(() => Application.Run(new OrderMenu()));
+            try
+            {
+                var t = new Thread(() => Application.Run(new OrderMenu()));
+                t.SetApartmentState(ApartmentState.STA);
+                t.Start();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
+
+        private void output_button_Click(object sender, EventArgs e)
+        {
+            var t = new Thread(() => Application.Run(new OutputMenu()));
             t.Start();
             this.Close();
         }

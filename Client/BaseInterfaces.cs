@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Client
 {
+    public interface IExport
+    {
+        public void save();
+    }
     public interface Itransfer
     {
         string Request(string json);

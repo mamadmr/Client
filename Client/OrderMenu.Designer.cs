@@ -49,6 +49,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.ordercode_txt = new System.Windows.Forms.TextBox();
             this.update_button = new System.Windows.Forms.Button();
+            this.output_csv_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -127,7 +128,7 @@
             // 
             // back_button
             // 
-            this.back_button.Location = new System.Drawing.Point(471, 371);
+            this.back_button.Location = new System.Drawing.Point(390, 371);
             this.back_button.Name = "back_button";
             this.back_button.Size = new System.Drawing.Size(75, 23);
             this.back_button.TabIndex = 8;
@@ -240,11 +241,22 @@
             this.update_button.UseVisualStyleBackColor = true;
             this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
+            // output_csv_button
+            // 
+            this.output_csv_button.Location = new System.Drawing.Point(471, 371);
+            this.output_csv_button.Name = "output_csv_button";
+            this.output_csv_button.Size = new System.Drawing.Size(75, 23);
+            this.output_csv_button.TabIndex = 21;
+            this.output_csv_button.Text = "Export";
+            this.output_csv_button.UseVisualStyleBackColor = true;
+            this.output_csv_button.Click += new System.EventHandler(this.output_csv_button_Click);
+            // 
             // OrderMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 423);
+            this.Controls.Add(this.output_csv_button);
             this.Controls.Add(this.update_button);
             this.Controls.Add(this.ordercode_txt);
             this.Controls.Add(this.label6);
@@ -298,5 +310,6 @@
         private Label label6;
         private TextBox ordercode_txt;
         private Button update_button;
+        private Button output_csv_button;
     }
 }

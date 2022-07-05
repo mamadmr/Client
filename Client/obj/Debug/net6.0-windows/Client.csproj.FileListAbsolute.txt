@@ -22,3 +22,4 @@ C:\Users\Reisi\Desktop\Client\Client\obj\Debug\net6.0-windows\Client.MyClerkMenu
 C:\Users\Reisi\Desktop\Client\Client\obj\Debug\net6.0-windows\Client.CakeMenu_Form.resources
 C:\Users\Reisi\Desktop\Client\Client\obj\Debug\net6.0-windows\Client.CustomerMenu.resources
 C:\Users\Reisi\Desktop\Client\Client\obj\Debug\net6.0-windows\Client.OrderMenu.resources
+C:\Users\Reisi\Desktop\Client\Client\obj\Debug\net6.0-windows\Client.OutputMenu.resources

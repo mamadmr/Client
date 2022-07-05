@@ -149,5 +149,37 @@ namespace Client
                 GlobalData.orders.Add((Order)x);
             }
         }
+
+        private void output_csv_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var Saver = new Export();
+                Saver.save();
+                Thread t = new Thread((ThreadStart)(() => { new Export(); }));
+                t.SetApartmentState(ApartmentState.STA);
+                t.Start();
+            }
+            catch
+            {
+                return;
+            }
+        }
+    }
+
+    class Export: IExport
+    {
+        public void save()
+        {
+            SaveFileDialog sd1 = new SaveFileDialog();
+            sd1.Title = "save";
+            sd1.Filter = "Json|*.json";
+            sd1.ShowDialog();
+            FileStream writeable = (System.IO.FileStream)sd1.OpenFile();
+            writeable.Close();
+
+            string jsonData = JsonConvert.SerializeObject(GlobalData.orders);
+            File.WriteAllText(writeable.Name, jsonData);
+        }
     }
 }
